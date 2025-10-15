@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xsi:type="MailApp">
+  <Id>125e0b6b-15d6-4fda-ae8b-bd749f3f0001</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Local</ProviderName>
+  <DefaultLocale>de-DE</DefaultLocale>
+  <DisplayName DefaultValue="Mail Reader"/>
+  <Description DefaultValue="Liest Betreff/Absender/Body des geöffneten Mails."/>
+  <IconUrl DefaultValue="https://localhost/addin/icon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost/addin/icon.png"/>
+  <AppDomains>
+    <AppDomain>localhost</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.5">
+      <Set Name="Mailbox"/>
+    </Sets>
+  </Requirements>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <SupportsPinning>true</SupportsPinning>
+  <VersionOverrides xsi:type="mailappor:VersionOverrides" Version="1.0">
+    <Hosts>
+      <Host xsi:type="mailappor:MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="residFunctionFileUrl"/>
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgread.group">
+                <Label resid="residGroupLabel"/>
+                <Control xsi:type="Button" id="msgread.button">
+                  <Label resid="residButtonLabel"/>
+                  <Supertip>
+                    <Title resid="residButtonLabel"/>
+                    <Description resid="residButtonDesc"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="residIcon"/>
+                    <bt:Image size="32" resid="residIcon"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="residTaskPaneUrl"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="residIcon" DefaultValue="https://localhost/addin/icon.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="residTaskPaneUrl" DefaultValue="https://localhost/addin/taskpane.html"/>
+        <bt:Url id="residFunctionFileUrl" DefaultValue="https://localhost/addin/functions.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="residGroupLabel" DefaultValue="Tools"/>
+        <bt:String id="residButtonLabel" DefaultValue="Mail anzeigen"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="residButtonDesc" DefaultValue="Zeigt Betreff/Absender/Body-Preview."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
