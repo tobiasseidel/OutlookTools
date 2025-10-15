@@ -8,10 +8,11 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Local</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
+  <SupportUrl DefaultValue="https://github.com/tobiasseidel/OutlookTools"/>
   <DisplayName DefaultValue="Mail Reader"/>
   <Description DefaultValue="Liest Betreff/Absender/Body des geöffneten Mails."/>
-  <IconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon.svg"/>
-  <HighResolutionIconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon.svg"/>
+  <IconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
   <AppDomains>
     <AppDomain>tobiasseidel.github.io</AppDomain>
   </AppDomains>
@@ -45,8 +46,9 @@
                     <Description resid="residButtonDesc"/>
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="residIcon"/>
-                    <bt:Image size="32" resid="residIcon"/>
+                    <bt:Image size="16" resid="residIcon16"/>
+                    <bt:Image size="32" resid="residIcon32"/>
+                    <bt:Image size="80" resid="residIcon80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <SourceLocation resid="residTaskPaneUrl"/>
@@ -60,7 +62,9 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="residIcon" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon.svg"/>
+        <bt:Image id="residIcon16" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-16.png"/>
+        <bt:Image id="residIcon32" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
+        <bt:Image id="residIcon80" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="residTaskPaneUrl" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
