@@ -10,18 +10,55 @@
     }
   }
   
+  function updateDebugInfo() {
+    var debugElement = document.getElementById('debug-context');
+    if (!debugElement) return;
+    
+    var info = [];
+    info.push('Office: ' + (typeof Office !== 'undefined' ? '✅' : '❌'));
+    
+    if (typeof Office !== 'undefined' && Office.context) {
+      info.push('Context: ✅');
+      if (Office.context.mailbox) {
+        info.push('Mailbox: ✅');
+        if (Office.context.mailbox.item) {
+          info.push('Item: ✅ (E-Mail geöffnet)');
+        } else {
+          info.push('Item: ❌ (Keine E-Mail)');
+        }
+      } else {
+        info.push('Mailbox: ❌');
+      }
+    } else {
+      info.push('Context: ❌');
+    }
+    
+    debugElement.innerHTML = info.join('<br>');
+  }
+  
   Office.onReady(function(info){
     try {
       var statusElement = document.getElementById('status');
       if (statusElement) {
-        statusElement.textContent = 'Office.js geladen. Host: ' + (info.host || 'unbekannt');
+        statusElement.textContent = '✅ Office.js geladen. Host: ' + (info.host || 'unbekannt');
+        statusElement.className = 'status success';
       }
       log('Office.js erfolgreich initialisiert.');
+      
+      updateDebugInfo();
       
       var btn = document.getElementById('read');
       if (!btn) {
         log('Fehler: Button nicht gefunden');
         return;
+      }
+      
+      var testBtn = document.getElementById('test-context');
+      if (testBtn) {
+        testBtn.onclick = function() {
+          updateDebugInfo();
+          log('Context-Test durchgeführt. Siehe Debug-Info oben.');
+        };
       }
       
       btn.onclick = function(){
@@ -70,8 +107,18 @@
       };
     } catch (e) {
       log('Initialisierungsfehler: ' + String(e));
+      var statusElement = document.getElementById('status');
+      if (statusElement) {
+        statusElement.textContent = '❌ Fehler: ' + String(e);
+        statusElement.className = 'status error';
+      }
     }
   }).catch(function(err){
     log('Office.onReady Fehler: ' + String(err));
+    var statusElement = document.getElementById('status');
+    if (statusElement) {
+      statusElement.textContent = '❌ Office.onReady Fehler: ' + String(err);
+      statusElement.className = 'status error';
+    }
   });
 })();
