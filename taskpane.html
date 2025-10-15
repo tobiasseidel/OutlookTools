@@ -8,11 +8,13 @@
   <style>
     body { font-family: system-ui, sans-serif; margin: 1rem; }
     pre { white-space: pre-wrap; word-break: break-word; background:#f6f8fa; padding: 0.75rem; border-radius:8px; }
-    button { padding: 0.5rem 0.75rem; }
+    button { padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; }
+    .status { font-size: 0.875rem; color: #666; margin-bottom: 1rem; }
   </style>
 </head>
 <body>
   <h3>Aktuelles Mail lesen</h3>
+  <div class="status" id="status">Lädt Office.js...</div>
   <button id="read">Mail lesen</button>
   <pre id="out">Noch nichts geladen.</pre>
   <script src="taskpane.js"></script>

@@ -7,8 +7,11 @@
 </head>
 <body>
   <script>
-    Office.onReady(function() {
+    Office.onReady(function(info) {
       // FunctionFile erfolgreich geladen
+      console.log('FunctionFile geladen für Host:', info.host);
+    }).catch(function(err) {
+      console.error('Fehler beim Laden der FunctionFile:', err);
     });
   </script>
 </body>
