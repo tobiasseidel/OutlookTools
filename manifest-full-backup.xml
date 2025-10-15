@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xsi:type="MailApp">
+  <Id>125e0b6b-15d6-4fda-ae8b-bd749f3f0001</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Local</ProviderName>
+  <DefaultLocale>de-DE</DefaultLocale>
+  <SupportUrl DefaultValue="https://github.com/tobiasseidel/OutlookTools"/>
+  <DisplayName DefaultValue="Mail Reader"/>
+  <Description DefaultValue="Liest Betreff/Absender/Body des geöffneten Mails."/>
+  <IconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
+  <AppDomains>
+    <AppDomain>tobiasseidel.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="Mailbox"/>
+    </Sets>
+  </Requirements>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.3">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="residFunctionFileUrl"/>
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgReadGroup">
+                <Label resid="residGroupLabel"/>
+                <Control xsi:type="Button" id="msgReadButton">
+                  <Label resid="residButtonLabel"/>
+                  <Supertip>
+                    <Title resid="residButtonLabel"/>
+                    <Description resid="residButtonDesc"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="residIcon16"/>
+                    <bt:Image size="32" resid="residIcon32"/>
+                    <bt:Image size="80" resid="residIcon80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="residTaskPaneUrl"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="residIcon16" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-16.png"/>
+        <bt:Image id="residIcon32" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
+        <bt:Image id="residIcon80" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="residTaskPaneUrl" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
+        <bt:Url id="residFunctionFileUrl" DefaultValue="https://tobiasseidel.github.io/OutlookTools/functions.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="residGroupLabel" DefaultValue="Tools"/>
+        <bt:String id="residButtonLabel" DefaultValue="Mail anzeigen"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="residButtonDesc" DefaultValue="Zeigt Betreff/Absender/Body-Preview."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

@@ -54,6 +54,19 @@ Tools für Outlook Online
 - Sideload/Custom Add-ins können gesperrt sein. Fallback: OWA-Automation (Playwright) oder manueller Copy/Paste‑Workflow.
 - GitHub Pages ist öffentlich: Keine sensiblen Daten ins Repo legen.
 
+## Fehlersuche / Debugging
+
+**Bei Problemen mit der Installation oder im Betrieb:**
+- Siehe **[DEBUG.md](DEBUG.md)** für eine detaillierte Anleitung
+- Das Taskpane enthält jetzt ein Debug-Panel mit Status-Informationen
+- Öffnen Sie die Browser-Entwicklertools (F12) im Taskpane für detaillierte Logs
+
+**Wichtigste Debug-Schritte:**
+1. Rechtsklick im Taskpane → "Element untersuchen"
+2. Console-Tab öffnen → Hier stehen alle Fehler
+3. Network-Tab → Prüfen ob alle Dateien laden (Status 200)
+4. Debug-Panel im Taskpane aufklappen für Quick-Check
+
 ## Nächste Schritte
 - Pages aktivieren.
 - Manifest-URLs anpassen und Sideload testen.
