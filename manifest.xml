@@ -10,10 +10,10 @@
   <DefaultLocale>de-DE</DefaultLocale>
   <DisplayName DefaultValue="Mail Reader"/>
   <Description DefaultValue="Liest Betreff/Absender/Body des geöffneten Mails."/>
-  <IconUrl DefaultValue="https://localhost/addin/icon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost/addin/icon.png"/>
+  <IconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon.svg"/>
+  <HighResolutionIconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon.svg"/>
   <AppDomains>
-    <AppDomain>localhost</AppDomain>
+    <AppDomain>tobiasseidel.github.io</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Mailbox"/>
@@ -60,11 +60,11 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="residIcon" DefaultValue="https://localhost/addin/icon.png"/>
+        <bt:Image id="residIcon" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon.svg"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="residTaskPaneUrl" DefaultValue="https://localhost/addin/taskpane.html"/>
-        <bt:Url id="residFunctionFileUrl" DefaultValue="https://localhost/addin/functions.html"/>
+        <bt:Url id="residTaskPaneUrl" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
+        <bt:Url id="residFunctionFileUrl" DefaultValue="https://tobiasseidel.github.io/OutlookTools/functions.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="residGroupLabel" DefaultValue="Tools"/>
