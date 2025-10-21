@@ -9,6 +9,10 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 import uvicorn
+import nest_asyncio
+
+# Erlaubt verschachtelte Event Loops (z.B. für Jupyter Notebooks)
+nest_asyncio.apply()
 
 app = FastAPI(
     title="Outlook Tools API",
