@@ -4,8 +4,8 @@
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
-  <Id>125e0b6b-15d6-4fda-ae8b-bd749f3f0002</Id>
-  <Version>1.0.0.1</Version>
+  <Id>125e0b6b-15d6-4fda-ae8b-bd749f3f0003</Id>
+  <Version>1.0.0.3</Version>
   <ProviderName>Local</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
   <DisplayName DefaultValue="Mail Reader"/>
@@ -27,8 +27,8 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
-        <RequestedHeight>250</RequestedHeight>
+        <SourceLocation DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane-api.html"/>
+        <RequestedHeight>600</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
@@ -37,7 +37,6 @@
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
   </Rule>
   
-  <!-- VersionOverrides V1.0 -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
     <Requirements>
       <bt:Sets DefaultMinVersion="1.5">
@@ -46,7 +45,6 @@
     </Requirements>
     <Hosts>
       <Host xsi:type="MailHost">
-        <!-- Desktop Form Factor -->
         <DesktopFormFactor>
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
             <OfficeTab id="TabDefault">
@@ -81,98 +79,15 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane-api.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Mail Reader"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="E-Mail lesen"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader zur Anzeige der Mail-Inhalte"/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader"/>
       </bt:LongStrings>
     </Resources>
-    
-    <!-- VersionOverrides V1.1 für bessere OWA-Unterstützung -->
-    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
-      <Requirements>
-        <bt:Sets DefaultMinVersion="1.5">
-          <bt:Set Name="Mailbox"/>
-        </bt:Sets>
-      </Requirements>
-      <Hosts>
-        <Host xsi:type="MailHost">
-          <!-- Desktop Form Factor -->
-          <DesktopFormFactor>
-            <ExtensionPoint xsi:type="MessageReadCommandSurface">
-              <OfficeTab id="TabDefault">
-                <Group id="msgReadGroup">
-                  <Label resid="GroupLabel"/>
-                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
-                    <Label resid="TaskpaneButton.Label"/>
-                    <Supertip>
-                      <Title resid="TaskpaneButton.Label"/>
-                      <Description resid="TaskpaneButton.Tooltip"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
-                      <bt:Image size="32" resid="Icon.32x32"/>
-                      <bt:Image size="80" resid="Icon.80x80"/>
-                    </Icon>
-                    <Action xsi:type="ShowTaskpane">
-                      <SourceLocation resid="Taskpane.Url"/>
-                    </Action>
-                  </Control>
-                </Group>
-              </OfficeTab>
-            </ExtensionPoint>
-          </DesktopFormFactor>
-          
-          <!-- Web Form Factor für OWA -->
-          <MobileFormFactor>
-            <FunctionFile resid="Taskpane.Url"/>
-            <ExtensionPoint xsi:type="MobileMessageReadCommandSurface">
-              <Group id="mobileMsgRead">
-                <Label resid="GroupLabel"/>
-                <Control xsi:type="MobileButton" id="mobileReadOpenPaneButton">
-                  <Label resid="TaskpaneButton.Label"/>
-                  <Icon>
-                    <bt:Image size="25" scale="1" resid="Icon.16x16"/>
-                    <bt:Image size="25" scale="2" resid="Icon.32x32"/>
-                    <bt:Image size="25" scale="3" resid="Icon.80x80"/>
-                    <bt:Image size="32" scale="1" resid="Icon.32x32"/>
-                    <bt:Image size="32" scale="2" resid="Icon.32x32"/>
-                    <bt:Image size="32" scale="3" resid="Icon.80x80"/>
-                    <bt:Image size="48" scale="1" resid="Icon.32x32"/>
-                    <bt:Image size="48" scale="2" resid="Icon.80x80"/>
-                    <bt:Image size="48" scale="3" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-            </ExtensionPoint>
-          </MobileFormFactor>
-        </Host>
-      </Hosts>
-      
-      <Resources>
-        <bt:Images>
-          <bt:Image id="Icon.16x16" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-16.png"/>
-          <bt:Image id="Icon.32x32" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
-          <bt:Image id="Icon.80x80" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
-        </bt:Images>
-        <bt:Urls>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
-        </bt:Urls>
-        <bt:ShortStrings>
-          <bt:String id="GroupLabel" DefaultValue="Mail Reader"/>
-          <bt:String id="TaskpaneButton.Label" DefaultValue="E-Mail lesen"/>
-        </bt:ShortStrings>
-        <bt:LongStrings>
-          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader zur Anzeige der Mail-Inhalte"/>
-        </bt:LongStrings>
-      </Resources>
-    </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
