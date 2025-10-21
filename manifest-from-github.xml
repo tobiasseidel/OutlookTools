@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xsi:type="MailApp">
+  <Id>125e0b6b-15d6-4fda-ae8b-bd749f3f0001</Id>
+  <Version>1.0.0.2</Version>
+  <ProviderName>Local</ProviderName>
+  <DefaultLocale>de-DE</DefaultLocale>
+  <DisplayName DefaultValue="Mail Reader"/>
+  <Description DefaultValue="Liest E-Mail Inhalte"/>
+  <IconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://github.com/tobiasseidel/OutlookTools"/>
+  <AppDomains>
+    <AppDomain>tobiasseidel.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane-api.html"/>
+        <RequestedHeight>600</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+</OfficeApp>
