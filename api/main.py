@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 import uvicorn
+import asyncio
 
 app = FastAPI(
     title="Outlook Tools API",
@@ -163,9 +164,18 @@ if __name__ == "__main__":
     print("=" * 60)
     print("\nDrücken Sie STRG+C zum Beenden\n")
     
-    uvicorn.run(
+    config = uvicorn.Config(
         app,
         host="0.0.0.0",
         port=8000,
         log_level="info"
     )
+    server = uvicorn.Server(config)
+    
+    try:
+        # Versuche, den bereits laufenden Event Loop zu verwenden
+        loop = asyncio.get_running_loop()
+        loop.create_task(server.serve())
+    except RuntimeError:
+        # Falls kein Event Loop läuft, starte einen neuen
+        asyncio.run(server.serve())
