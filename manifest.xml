@@ -5,11 +5,11 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
   <Id>125e0b6b-15d6-4fda-ae8b-bd749f3f0002</Id>
-  <Version>1.0.0.2</Version>
+  <Version>1.0.0.1</Version>
   <ProviderName>Local</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
-  <DisplayName DefaultValue="Mail Reader + API"/>
-  <Description DefaultValue="Liest E-Mails und sendet sie an FastAPI"/>
+  <DisplayName DefaultValue="Mail Reader"/>
+  <Description DefaultValue="Liest E-Mail Inhalte"/>
   <IconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://github.com/tobiasseidel/OutlookTools"/>
@@ -27,8 +27,8 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane-api.html"/>
-        <RequestedHeight>600</RequestedHeight>
+        <SourceLocation DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
+        <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
@@ -81,14 +81,14 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane-api.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Mail Reader"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="E-Mail + API"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="E-Mail lesen"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader mit FastAPI Integration"/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader zur Anzeige der Mail-Inhalte"/>
       </bt:LongStrings>
     </Resources>
     
@@ -163,14 +163,14 @@
           <bt:Image id="Icon.80x80" DefaultValue="https://tobiasseidel.github.io/OutlookTools/assets/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane-api.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://tobiasseidel.github.io/OutlookTools/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Mail Reader"/>
-          <bt:String id="TaskpaneButton.Label" DefaultValue="E-Mail + API"/>
+          <bt:String id="TaskpaneButton.Label" DefaultValue="E-Mail lesen"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader mit FastAPI Integration"/>
+          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Öffnet den E-Mail Reader zur Anzeige der Mail-Inhalte"/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
