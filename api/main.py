@@ -5,17 +5,23 @@ Empfängt E-Mail-Daten vom Outlook Add-in und sendet verarbeitete Daten zurück
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 import uvicorn
 import asyncio
+from pathlib import Path
 
 app = FastAPI(
     title="Outlook Tools API",
     description="API für Outlook Add-in zur Verarbeitung von E-Mail-Daten",
     version="1.0.0"
 )
+
+# Pfad zum Projektroot (ein Verzeichnis über api/)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # CORS Konfiguration - WICHTIG für localhost-Zugriff vom Browser!
 app.add_middleware(
@@ -152,6 +158,34 @@ async def test_get():
         "message": "API ist erreichbar",
         "timestamp": datetime.now().isoformat()
     }
+
+
+# Statische Dateien für Outlook Add-in bereitstellen
+@app.get("/taskpane-api.html")
+async def serve_taskpane_html():
+    """Liefert taskpane-api.html aus"""
+    file_path = BASE_DIR / "taskpane-api.html"
+    if file_path.exists():
+        return FileResponse(file_path)
+    raise HTTPException(status_code=404, detail="taskpane-api.html nicht gefunden")
+
+
+@app.get("/taskpane-api.js")
+async def serve_taskpane_js():
+    """Liefert taskpane-api.js aus"""
+    file_path = BASE_DIR / "taskpane-api.js"
+    if file_path.exists():
+        return FileResponse(file_path, media_type="application/javascript")
+    raise HTTPException(status_code=404, detail="taskpane-api.js nicht gefunden")
+
+
+@app.get("/assets/{filename}")
+async def serve_assets(filename: str):
+    """Liefert Asset-Dateien aus"""
+    file_path = BASE_DIR / "assets" / filename
+    if file_path.exists():
+        return FileResponse(file_path)
+    raise HTTPException(status_code=404, detail=f"Asset {filename} nicht gefunden")
 
 
 if __name__ == "__main__":
