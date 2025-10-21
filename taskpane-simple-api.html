@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mail Reader</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1rem; }
+    pre { white-space: pre-wrap; word-break: break-word; background:#f6f8fa; padding: 0.75rem; border-radius:8px; font-size: 0.875rem; max-height: 300px; overflow-y: auto; }
+    button { padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; margin-right: 0.5rem; }
+    input { padding: 0.5rem; margin-bottom: 0.5rem; width: 100%; box-sizing: border-box; }
+    .status { font-size: 0.875rem; color: #666; margin-bottom: 1rem; }
+    .error { color: #dc3545; }
+    .success { color: #28a745; }
+    .section { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <h3>Mail Reader + API Test</h3>
+  <div class="status" id="status">Lädt Office.js...</div>
+  
+  <div class="section">
+    <h4>1. API Konfiguration</h4>
+    <label>API URL:</label>
+    <input type="text" id="api-url" value="http://localhost:8000" placeholder="http://localhost:8000">
+    <button id="test-api">🔌 API Verbindung testen</button>
+  </div>
+  
+  <div class="section">
+    <h4>2. E-Mail lesen</h4>
+    <button id="read">📬 Mail lesen</button>
+    <button id="send-to-api">🚀 An API senden</button>
+  </div>
+  
+  <div class="section">
+    <h4>Ausgabe:</h4>
+    <pre id="out">Noch nichts geladen.</pre>
+  </div>
+  
+  <script src="taskpane-simple-api.js"></script>
+</body>
+</html>
